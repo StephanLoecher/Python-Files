@@ -1,36 +1,33 @@
-import os
 from typing import Iterable
 
-path = os.path.join("./save.txt")
-
-def saveFile(data: str):
+def saveFile(path, data: str):
+    saveFile = open(path, "w+")
     try:
-        saveFile = open(path, "a+")
         saveFile.write(data)
         saveFile.close()
     except:
         saveFile.close()
 
-def saveLinesToFile(data: Iterable[str]):
+def saveLinesToFile(path, data: Iterable[str]):
+    saveFile = open(path, "w+")
     try:
-        saveFile = open(path, "a+")
         saveFile.writelines(data)
         saveFile.close()
     except:
         saveFile.close()
 
-def readFile():
+def readFile(path):
+    saveFile = open(path, "r")
     try:
-        saveFile = open(path, "r")
         textFromFile = saveFile.read()
         saveFile.close()
         return textFromFile
     except:
         saveFile.close()
 
-def readLinesFromFile():
+def readLinesFromFile(path):
+    saveFile = open(path, "r")
     try:
-        saveFile = open(path, "r")
         textFromFile = saveFile.readlines()
         saveFile.close()
         return textFromFile
